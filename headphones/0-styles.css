@@ -1,92 +1,159 @@
+/* Icon font */
+@font-face {
+  font-family: 'holberton_school-icon';
+  src: url('fonts/holberton_school-icon.woff') format('woff');
+}
 
-/* Basic reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  font-family: 'source-sans-pro';
-  line-height: 1.6;
-}
-
-.hero {
-  background: url('images/headphones_hero_1.jpg') no-repeat center center/cover;
   color: white;
-  padding: 4rem 2rem;
-  text-align: center;
 }
 
-.navbar {
+/* Background image setup */
+.background-image {
+  background-image: url(images/headphones_hero_1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header */
+.main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2rem;
+  padding: 20px;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 30px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+/* Nav links */
+.main-nav {
+  display: none;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+#nav-toggle:checked ~ .main-nav {
+  display: block;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: transparent;
 }
 
 .nav-links {
   list-style: none;
+  padding: 20px;
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
 }
 
-.nav-links li {
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Menu toggle (hamburger icon) */
+.menu-toggle {
+  display: block;
+}
+
+.menu-toggle i {
+  font-size: 24px;
+  color: white;
   cursor: pointer;
 }
 
-.hero-content h1 {
+/* Hero section container */
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.hero-content button {
-  background-color: #FF5E57;
-  color: white;
-  border: none;
-  padding: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 10px;
-  margin-top: 1rem;
-  
-}
-button:hover :active {
-    opacity: 0.0;
-}
-
-.services {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.service-items {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.service img {
-  width: 40px;
-  height: 40px;
+p {
   margin-bottom: 1rem;
 }
 
-.service h3 {
-  margin-bottom: 0.5rem;
+.btn {
+  background-color: rgb(226, 46, 46);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 1rem 0;
+  cursor: pointer;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* space between icon and text */
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #fff; /* or any color you like */
-}
+/* Responsive (Desktop) */
+@media screen and (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
 
-.logo img {
-  width: 24px;  /* adjust size as needed */
-  height: auto;
+  .main-nav {
+    display: block !important;
+    position: static;
+    background: transparent;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 30px;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin-bottom: 0;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    width: 32px;
+  }
 }
